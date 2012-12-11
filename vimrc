@@ -223,3 +223,8 @@ set relativenumber
 "	All matches in a line are substituted instead of one.
 set gdefault
 
+" source abbreviations 
+runtime abbreviations
+
+" source keyboard shortcuts
+runtime keyboard_shortcuts
