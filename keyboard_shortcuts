@@ -1,0 +1,30 @@
+" vim: set ft=vim:
+
+" Touchpad functionality
+nmap <SwipeLeft> :bN<CR>
+nmap <SwipeRight> :bn<CR>
+
+" Set CTRL+TAB/CTRL+SHIFT+TAB to switch between buffer
+nmap <silent> <C-Tab> :bn<CR>
+nmap <silent> <C-S-Tab> :bp<CR>
+
+"Markdown to HTML
+nmap <leader>md :%!/usr/local/bin/Markdown.pl --html4tags <cr>
+
+"Select using visual first, then \mm will convert the selected markdown to html
+vmap mm :!/usr/local/bin/Markdown.pl –html4tags
+
+" Use w!! when sudo has been forgotten.
+cmap w!! w !sudo tee % >/dev/null
+
+" Open .vimrc with <leader>vrc
+map <silent><leader>vrc :e! $MYVIMRC<CR>
+
+" Open current file
+map <silent><leader>o :!open %<CR>
+
+" Change window transparency with <F1> key
+map <F1> :let &transp = &transp == 0 ? 10 : 0<CR>
+
+" Let jk exit insert mode http://learnvimscriptthehardway.stevelosh.com/chapters/10.html
+inoremap jk <esc>
