@@ -34,6 +34,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'edsono/vim-matchit'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-ragtag'
+Bundle 'lukaszb/vim-web-indent'
 
 " Do not show introduction message when starting Vim.
 set shortmess+=I
