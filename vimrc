@@ -245,3 +245,6 @@ runtime abbreviations
 
 " source keyboard shortcuts
 runtime keyboard_shortcuts
+
+" source spf13 configuration
+runtime spf13_config
