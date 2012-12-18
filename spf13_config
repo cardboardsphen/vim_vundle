@@ -17,6 +17,7 @@ set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 set backupdir=$HOME/.vimbackup//  " but not when they clog .
 set directory=$HOME/.vimswap//   " Same for swap files
 set viewdir=$HOME/.vimviews//  " same for view files
+set undodir=$HOME/.vimundo//  " same for view files
 
 " Creating directories if they don't exist
 "silent execute '!mkdir -p $HVOME/.vimbackup'
