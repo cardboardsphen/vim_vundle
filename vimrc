@@ -1,6 +1,7 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
-filetype plugin indent on     " required!
+filetype plugin on " required!
+filetype indent on     " required!
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -9,7 +10,6 @@ call vundle#rc()
 " required! 
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
-Bundle 'vim-scripts/dbext.vim'
 Bundle 'stephpy/vim-php-cs-fixer'
 Bundle 'vim-scripts/dbext.vim'
 Bundle 'kien/ctrlp.vim'
@@ -25,6 +25,22 @@ Bundle 'ervandew/supertab'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'skammer/vim-css-color'
 Bundle '2072/PHP-Indenting-for-VIm'
+Bundle 'paradigm/vim-multicursor'
+Bundle 'vim-scripts/genutils'
+Bundle 'adinapoli/vim-markmultiple'
+Bundle 'vim-scripts/multiselect'
+Bundle 'tpope/vim-surround'
+Bundle 'edsono/vim-matchit'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-ragtag'
+Bundle 'lukaszb/vim-web-indent'
+
+" Do not show introduction message when starting Vim.
+set shortmess+=I
+
+" Display special characters for certain whitespace situations.
+set list
+set listchars=tab:>·,trail:·,extends:…,precedes:…,nbsp:&
 
 " colorscheme molokai
 set background=dark
@@ -88,6 +104,26 @@ augroup drupal
   autocmd BufRead,BufNewFile *.php set filetype=php.html
 augroup END
 
+" Tabs, Spaces and Indentation.
+
+" Use spaces for tabs.
+set expandtab
+
+" Number of spaces to autoindent.
+set shiftwidth=2
+
+" Number of spaces for a tab.
+set softtabstop=2
+
+" set autoindent
+" set smartindent
+
+" Number of spaces to use for tabs.
+set tabstop=2 
+
+" Number of spaces to autoindent.
+set shiftwidth=2
+
 " Enable Omnicompletion
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
@@ -106,25 +142,6 @@ autocmd FileType vim set keywordprg=:help
 
 " Add ghost icon to toolbar and change transparency when clicked.
 amenu icon=~/.vim/Boo.icns ToolBar.Transparency :let &transp = &transp == 0 ? 10 : 0<CR>
-
-" Tabs, Spaces and Indentation.
-
-" Use spaces for tabs.
-set expandtab 
-
-" Number of spaces to use for tabs.
-set tabstop=2 
-
-" Number of spaces to autoindent.
-set shiftwidth=2 
-
-" Number of spaces for a tab.
-set softtabstop=2 
-
-" set autoindent " Set autoindenting on.
-set ai
-
-set smartindent
 
 " Backspace, this is the same as :set backspace=indent,eol,start.
 set bs=2 
@@ -220,7 +237,7 @@ set ruler
 " Show the line number relative to the line with the cursor in front of each line.
 set relativenumber
 
-"	All matches in a line are substituted instead of one.
+"All matches in a line are substituted instead of one.
 set gdefault
 
 " source abbreviations 
@@ -228,3 +245,6 @@ runtime abbreviations
 
 " source keyboard shortcuts
 runtime keyboard_shortcuts
+
+" source spf13 configuration
+runtime spf13_config

@@ -28,3 +28,15 @@ map <F1> :let &transp = &transp == 0 ? 10 : 0<CR>
 
 " Let jk exit insert mode http://learnvimscriptthehardway.stevelosh.com/chapters/10.html
 inoremap jk <esc>
+
+" Multicursor config
+nnoremap <leader>d :<c-u>call MultiCursorPlaceCursor()<cr>
+nnoremap <leader>mc :<c-u>call MultiCursorManual()<cr>
+
+" Project Directories
+nmap <silent><leader>gdp :cd ~/web/business/gdportfolio/<cr>
+nmap <silent><leader>gd :cd ~/web/personal/gd/dev/<cr>
+
+" Ctrl P shortcuts
+nmap <silent><C-b> :CtrlPBuffer<cr>
+nmap <silent><C-m> :CtrlPMRUFiles<cr>
