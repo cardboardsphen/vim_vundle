@@ -10,7 +10,6 @@ call vundle#rc()
 " required! 
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
-Bundle 'vim-scripts/dbext.vim'
 Bundle 'stephpy/vim-php-cs-fixer'
 Bundle 'vim-scripts/dbext.vim'
 Bundle 'kien/ctrlp.vim'
