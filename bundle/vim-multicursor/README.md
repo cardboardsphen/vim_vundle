@@ -4,7 +4,7 @@ MultiCursor
 MultiCursor USER MANUAL - by Daniel Thau
 
 If you'd like to skip the whole "reading" nonsense and watch a nice, wholesome
-video which explains SkyBison instead, see
+video which explains MultiCursor instead, see
 [here](http://www.youtube.com/watch?v=Umb59mMvCxA).
 
 Description
@@ -87,23 +87,28 @@ Or every group of characters like those visually selected:
 Some of the above magic was borrowed from the [SearchParty
 plugin](https://github.com/dahu/SearchParty).
 
-Finally, you can set a keybinding to stop using multiple cursors (and fall back
-to the normal single cursor) like so:
+Finally, you should set a keybinding to stop using multiple cursors (and fall
+back to the normal single cursor) like so:
 
     let g:multicursor_quit = "{keys}"
 
-Note that |ctrl-c| will also stop MultiCursor.
+This will quit multicursor from normal mode (ie, if pressed in another mode
+such as insert or visual it will act as though there is no special mapping).
+This functions somewhat like `mapleader`, except that it is limited to what can
+be provided by a single `getchar()` (after it has been run through
+`nr2char()`).  If `g:multicursor_quit` does not seem to work, you can fall back
+to `ctrl-c`.
 
 In addition to creating mappings, you can override the color scheme used by
 MultiCursor for the cursors by setting the "MultiCursor" highlight group.  See
-|:highlight|.
+`:highlight`.
 
 Usage
 -----
 
 To utilize multiple cursors, you must first create the extra cursors.  There
 are several methods to do so.  The setup method for each is described above in
-|multicursor-setup|.  They are summarized here as well.
+`multicursor-setup`.  They are summarized here as well.
 
 - You can move the (normal, singular) cursor over each location at which you
   would like to create a cursor, then press a mapping to create a cursor at
@@ -112,17 +117,19 @@ are several methods to do so.  The setup method for each is described above in
   yet another mapping.
 - You can visually select an area and run a mapping to create a cursor on every
   line of the visually selected area (in the left-most column).  Moreover, you
-  can prefix the mapping with a |count| to tell MultiCursor to only create one
+  can prefix the mapping with a `count` to tell MultiCursor to only create one
   cursor for however many lines.
 - You can create a cursor at every position which matches a regular expression
   search.  Mappings can be made to expand on this; for example, mappings can be
   made to search for the word under the cursor or the characters in the
   visually selected area.
 
+
 Once the cursors are created and being used, most commands entered into Vim
 will be applied at each of the cursor positions.  For example, "diw" will
 delete the word under each of the cursors.  You can stop using multiple cursors
-by entering |ctrl-c| or some other keybinding as set in |g:multicursor_quit|.
+by typing `g:multicursor_quit` or, if that is not working, fall back to
+`ctrl-c`.
 
 Known Issues
 ------------
@@ -130,7 +137,7 @@ Known Issues
 - Insert mode works; however, the output is not updated in the buffer until it
   has been completed (ie, the mode as returned to normal mode.)  Do note that
   the pending command is shown at the bottom to allow you to see what you are
-  typing.  Interactive UI, such as popup menus for |ins-completion| will not
+  typing.  Interactive UI, such as popup menus for `ins-completion` will not
   work.
 
 - Visual mode mostly works; however, like insert mode, the result is not
@@ -140,7 +147,7 @@ Known Issues
 
 - The cmdline works, but like insert and visual mode it has limitations; you
   won't get to see things like the wildmenu.  Additionally, output from
-  commands such as |:ls| don't work.  Note that cmdline commands are run for
+  commands such as `:ls` don't work.  Note that cmdline commands are run for
   every cursor.  This is not necessarily an "issue", as it is useful if one
   wants to run a :substitute at every cursor, but it is potentially confusing
   at first.
@@ -176,11 +183,6 @@ Known Issues
   entered.
 
 - Cursors on areas without characters (such as blank lines) aren't visible.
-
-- The keybinding to stop MultiCursor works in all modes.  One cannot, at the
-  moment, stop MultiCursor with "q" in only normal mode - setting
-  |g:multicursor_quit| to "q" will also quite MultiCursor if it is in insert
-  mode.
 
 Debug
 -----
@@ -220,7 +222,7 @@ the last keystroke.  This should occur when both conditions are true:
 
 The second result of enabling debug is that the try/catch block is disabled.
 The try/catch block is typically used to ensure that if the user attempts to
-stop MultiCursor with |ctrl-c|, MultiCursor will also clean up.  However, the
+stop MultiCursor with `ctrl-c`, MultiCursor will also clean up.  However, the
 try/catch block will also hide errors - if an error occurs (without debug),
 MultiCursor will still remove the cursors and exit cleanly.  The down side to
 this is that it makes debugging difficult, as errors are hidden.  Hence, with
@@ -228,6 +230,9 @@ debugging on, the try/catch block is disabled.
 
 Changelog
 ---------
+
+0.2 (2012-12-11):
+ - various bugfixes
 
 0.1 (2012-12-11):
  - initial release

@@ -26,6 +26,16 @@ Bundle 'ervandew/supertab'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'skammer/vim-css-color'
 Bundle '2072/PHP-Indenting-for-VIm'
+Bundle 'paradigm/vim-multicursor'
+Bundle 'vim-scripts/genutils'
+Bundle 'adinapoli/vim-markmultiple'
+Bundle 'vim-scripts/multiselect'
+Bundle 'tpope/vim-surround'
+Bundle 'edsono/vim-matchit'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-ragtag'
+Bundle 'lukaszb/vim-web-indent'
+Bundle 'vim-scripts/doxygen-support.vim'
 
 " colorscheme molokai
 set background=dark
