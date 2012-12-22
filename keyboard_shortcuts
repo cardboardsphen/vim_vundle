@@ -18,7 +18,14 @@ vmap mm :!/usr/local/bin/Markdown.pl –html4tags
 cmap w!! w !sudo tee % >/dev/null
 
 " Open .vimrc with <leader>vrc
-map <silent><leader>vrc :e! $MYVIMRC<CR>
+map <silent><leader>vrc :e! $MYVIMRC<CR> <bar> :cd ~/.vim<CR>
+au BufNewFile,BufRead $MYVIMRC :cd ~/.vim
+
+" Open apache vhosts
+map <silent><leader>avh :e! /etc/apache2/other/httpd-vhosts.conf<CR>
+
+" Open hosts file
+map <silent><leader>hosts :e! /etc/hosts<CR>
 
 " Open current file
 map <silent><leader>o :!open %<CR>
