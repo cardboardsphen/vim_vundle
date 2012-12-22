@@ -35,7 +35,6 @@ Bundle 'edsono/vim-matchit'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-ragtag'
 Bundle 'lukaszb/vim-web-indent'
-Bundle 'vim-scripts/doxygen-support.vim'
 Bundle 'vim-scripts/Conque-Shell'
 
 " Do not show introduction message when starting Vim.
