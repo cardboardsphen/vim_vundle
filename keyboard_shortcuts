@@ -47,3 +47,8 @@ nmap <silent><leader>gd :cd ~/web/personal/gd/dev/<cr>
 " Ctrl P shortcuts
 nmap <silent><C-b> :CtrlPBuffer<cr>
 nmap <silent><C-m> :CtrlPMRUFiles<cr>
+
+" When in split screen, map <C-LeftArrow> and <C-RightArrow> to switch panes.
+nn [5C <C-W>w
+nn [5R <C-W>W
+
