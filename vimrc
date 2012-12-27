@@ -36,6 +36,7 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-ragtag'
 Bundle 'lukaszb/vim-web-indent'
 Bundle 'vim-scripts/Conque-Shell'
+Bundle 'vim-scripts/AutoTag'
 Bundle 'psynaptic/vim-drupal'
 
 " Do not show introduction message when starting Vim.
