@@ -135,11 +135,20 @@ set tabstop=2
 " Number of spaces to autoindent.
 set shiftwidth=2
 
+" Round indent to multiple of 'shiftwidth' for > and < commands
+set shiftround
+
 " Use spaces for tabs.
 set expandtab 
 
 " Number of spaces for a tab.
 set softtabstop=2 
+
+" When a bracket is inserted, briefly jump to a matching one
+set showmatch
+
+" Don't request terminal version string (for xterm)
+"set t_RV=
 
 " set autoindent " Set autoindenting on.
 "set ai
@@ -172,7 +181,7 @@ set nospell
 
 " Tab completion
 
-" Enhanced command line completion
+" Use menu to show command-line completion (in 'full' case)
 set wildmenu
 
 " type tab in cmdline to start wildcard expansion
@@ -241,6 +250,15 @@ set relativenumber
 
 " All matches in a line are substituted instead of one.
 set gdefault
+
+" Jump to matching bracket for 2/10th of a second (works with showmatch)
+set matchtime=2
+
+" Go back to the position the cursor was on the last time this file was edited
+au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")|execute("normal `\"")|endif
+
+" Use F10 to toggle 'paste' mode
+"set pastetoggle=<F10>
 
 " source abbreviations 
 runtime abbreviations
