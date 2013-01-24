@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/gdance/web/business/evostudios/dev/sites/all/themes/evo_studios_omega(mine)'
+let g:netrw_dirhist_2='/Users/gdance/web/business/evostudios/dev/sites/all/themes/evostudios_omega'
+let g:netrw_dirhist_3='/Users/gdance/web/business/evostudios/dev/sites/all/themes/evo_studios_omega(mine)/css'
+let g:netrw_dirhist_4='/Users/gdance/web/business/eureka/docroot/profiles/aibm_profile/themes/myeureka/css'
