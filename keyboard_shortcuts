@@ -18,7 +18,9 @@ vmap mm :!/usr/local/bin/Markdown.pl –html4tags
 cmap w!! w !sudo tee % >/dev/null
 
 " Open .vimrc with <leader>vrc
-map <silent><leader>vrc :e! $MYVIMRC<CR> <bar> :cd ~/.vim<CR>
+"map <silent><leader>vrc :e! $MYVIMRC<CR> <bar> :cd ~/.vim<CR>
+map <silent><leader>vrc :vsplit $MYVIMRC<CR>  <bar> :cd ~/.vim<CR>
+
 au BufNewFile,BufRead $MYVIMRC :cd ~/.vim
 
 " Open apache vhosts
@@ -72,3 +74,10 @@ nmap gf :new %:p:h/<cfile><CR>
 " visual shifting (does not exit Visual mode)
 vnoremap < <gv
 vnoremap > >gv 
+
+" Toggle Relative and regular line numbering
+nmap <silent><Leader>` :exec &nu==&rnu? "se nu!" : "se rnu!"<CR>
+
+" Toggle :browse oldfiles
+nmap <silent><Leader>mru :browse old<CR>
+

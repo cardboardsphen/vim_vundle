@@ -52,7 +52,7 @@ set listchars=tab:>·,trail:·,extends:…,precedes:…,nbsp:&
 
 " colorscheme molokai
 set background=dark
-colorscheme solarized
+colorscheme wombat256
 
 " Set font in GUI window
 let &guifont='Menlo Bold:h17'
@@ -133,8 +133,10 @@ amenu icon=~/.vim/Boo.icns ToolBar.Transparency :let &transp = &transp == 0 ? 10
 
 " Tabs, Spaces and Indentation.
 
+set cindent
+
 " Number of spaces to use for tabs.
-set tabstop=2 
+set tabstop=2
 
 " Number of spaces to autoindent.
 set shiftwidth=2
@@ -146,7 +148,7 @@ set shiftround
 set expandtab 
 
 " Number of spaces for a tab.
-set softtabstop=2 
+set softtabstop=2
 
 " When a bracket is inserted, briefly jump to a matching one
 set showmatch
@@ -165,7 +167,7 @@ set bs=2
 " Show the cursor position.
 set ruler
 
-" Show 5 lines above/below the cursor when scrolling.
+" Show 0 lines above/below the cursor when scrolling.
 set scrolloff=0
 
 " Line numbers on.
@@ -204,8 +206,6 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 " ultisnips configuration
 let g:UltiSnipsListSnippets = '<c-tab>'
 let g:UltiSnipsExpandTrigger ="<tab>"
-let g:UltiSnipsJumpForwardTrigger ="<tab>"
-let g:UltiSnipsJumpBackwardTrigger ="<s-tab>"
 
 " Fix syntax coloring when preview closes?
 set completeopt-=preview
@@ -240,9 +240,6 @@ set hidden
 " Set encoding to UTF-8
 set encoding=utf-8
 
-" Minimal number of screen lines to keep above and below the cursor.
-set scrolloff=3
-
 " Indicates a fast terminal connection.
 set ttyfast
 
@@ -263,6 +260,16 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")|execute("normal 
 
 " Use F10 to toggle 'paste' mode
 "set pastetoggle=<F10>
+
+" Place a dark gray line at 80 columns to visibly mark the point where most code should end or be wrapped:
+set colorcolumn=80
+highlight colorcolumn ctermbg=233
+
+" Generate tags automatically
+set tags=./tags,/home/user/your/source/code
+
+" http://robots.thoughtbot.com/post/19398560514/how-to-copy-and-paste-with-tmux-on-mac-os-x
+set clipboard=unnamed
 
 " source abbreviations 
 runtime abbreviations
